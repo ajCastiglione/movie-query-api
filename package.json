@@ -25,5 +25,8 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-sass": "^4.0.1"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.2.1"
   }
 }
