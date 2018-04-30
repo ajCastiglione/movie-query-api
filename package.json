@@ -1,0 +1,29 @@
+{
+  "name": "tmdb",
+  "version": "1.0.0",
+  "description": "Web app using TMDb's public API to fetch data about movies",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajCastiglione/movie-query-api.git"
+  },
+  "keywords": [
+    "tmdb",
+    "movie-api"
+  ],
+  "author": "AJ Castiglione",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajCastiglione/movie-query-api/issues"
+  },
+  "homepage": "https://github.com/ajCastiglione/movie-query-api#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-sass": "^4.0.1"
+  }
+}
