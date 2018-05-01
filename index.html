@@ -6,9 +6,14 @@
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Style Sheets -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet"> <!--Font-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><!--Bootstrap-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"><!--FontAwesome-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <!--Font-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <!--FontAwesome-->
     <link href="css/styles.css" rel="stylesheet">
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -26,15 +31,47 @@
 
     <main>
         <section class="input-section">
-            <div class="discover-container">
-                <h2>Discover new movies</h2>
-            </div>
 
-            <div class="search-container">
-                <h2>Search for a movie</h2>
-            </div>
+            <article class="inner-input-section">
+                <div class="discover-container">
+                    <h2>Discover new movies</h2>
+                </div>
+
+                <div class="search-container">
+                    <h2>Search for a movie</h2>
+                </div>
+            </article>
+
+
+            <article class="input-fields">
+                <div class="input-discover-options">
+                    <div id="current-movies" class="discover-option col-xs-6 col-sm-4">
+                        <h4>In Theaters</h4>
+                    </div>
+                    <div id="popular-movies" class="discover-option col-xs-6 col-sm-4">
+                        <h4>Popular Movies</h4>
+                    </div>
+                    <div id="best-movies-thisYear" class="discover-option col-xs-6 col-sm-4">
+                        <h4>Best movies from 2017</h4>
+                    </div>
+                    <div id="best-action-movies" class="discover-option col-xs-6 col-sm-4">
+                        <h4>Best action movies</h4>
+                    </div>
+                    <div id="best-comedy-movies" class="discover-option col-xs-6 col-sm-4">
+                        <h4>Best comedy movies</h4>
+                    </div>
+                    <div id="best-horror-movies" class="discover-option col-xs-6 col-sm-4">
+                        <h4>Best horror movies</h4>
+                    </div>
+                </div>
+
+                <div class="input-search-field">
+                    <input type="text" id="searchTxt" class="form-control">
+                </div>
+            </article>
+
         </section>
-    
+
         <section class="output-section container">
             <!--results will display here-->
         </section>
