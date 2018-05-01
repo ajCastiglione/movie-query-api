@@ -69,7 +69,6 @@ $(function () {
         }
 
         storage.movieProp = JSON.stringify(movieData);
-        storage.genreList = JSON.stringify(genresArr);
 
         displayContent();
     }
@@ -90,7 +89,7 @@ $(function () {
     }
 
     async function fetchGenres() {
-        let result;
+        let result, genresArr = [];
         try {
             result = await $.ajax({
                 url: genresUrl,
@@ -100,6 +99,7 @@ $(function () {
         } catch (error) {
             console.error(error);
         }
+        storage.genreList = JSON.stringify(genresArr);
     }
 
     async function filterGenres(ids) {
@@ -116,12 +116,29 @@ $(function () {
         return genreNames;
     }
 
-    function displayContent() {
+    function displayContent(savedArr) {
         out.empty();
         let content;
 
-        for (movie of movieData) {
-            content = $(`
+        if (savedArr) {
+            for (movie of savedArr) {
+                content = $(`
+                <div class="movie-result-content clearfix">
+                    <div class="movie-image col-xs-6">
+                        <img src="${movie.img}" alt="${movie.title}">
+                    </div>
+                    <div class="movie-content col-xs-6">
+                        <h3>${movie.title}</h3>
+                        <p class="release-date">Release Date: <br> ${movie.release}</p>
+                        <p class="genre-list">Genres: <br> ${movie.genres}</p>
+                    </div>
+                </div>
+            `);
+                out.append(content);
+            }
+        } else {
+            for (movie of movieData) {
+                content = $(`
             <div class="movie-result-content clearfix">
                 <div class="movie-image col-xs-6">
                     <img src="${movie.img}" alt="${movie.title}">
@@ -133,8 +150,14 @@ $(function () {
                 </div>
             </div>
         `);
-            out.append(content);
+                out.append(content);
+            }
         }
+    }
+
+    if (storage.movieProp) {
+        let arr = JSON.parse(storage.movieProp);
+        displayContent(arr);
     }
 
 
@@ -142,3 +165,17 @@ $(function () {
     $('#best-movies-thisYear').html(`Best movies in ${year}`);
 
 }); //Main function fires when document loads
+
+/*
+const apiKey = 'dc6e89fce3c599996912de0ef6bfe6b4';
+const genresUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`;
+const baseImgUrl = 'http://image.tmdb.org/t/p/w200';
+const totalPgs = 10;
+const date = new Date();
+let day = date.getUTCDate();
+let month = date.getUTCMonth()+1;
+let year = date.getUTCFullYear();
+let dateStamp = `${year}-${month}-${day}`;
+let storage = window.localStorage;
+*/
+//temp files for local computer
