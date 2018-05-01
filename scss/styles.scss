@@ -2,11 +2,15 @@
 Variables
 ***************************/
 $bgImg: 'https://images8.alphacoders.com/428/428435.jpg';
+$discoverBg: 'http://3.bp.blogspot.com/-jPIduDC--qA/UPhIvijfZsI/AAAAAAAAAEA/gbqrl5KPbjM/s1600/Movies+and+TV+Shows+Collage.jpg';
+$searchBg: 'https://yt3.ggpht.com/a-/AJLlDp1m616D2vIJujgJz9m00yeJyhTF65_9qJcNng=s900-mo-c-c0xffffffff-rj-k-no';
+
 $pop: 'Poppins', sans-serif;
 $lightBlue: #809dcc;
 $white: #fff;
 $black: #000;
 $gray: #636363;
+$blue: #0951c4;
 
 /***************************
 Global Section
@@ -27,9 +31,73 @@ header {
     background-position: center center;
     background-blend-mode: multiply;
     padding: 1.75em 0;
+    margin-bottom: 1em;
 
     h1 {
         font-weight: 300;
         text-align: center;
     }
+}
+
+/************************
+Main Section
+*************************/
+.inner-input-section {
+    text-align: center;
+    margin: 1em 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.discover-container,
+.search-container {
+    position: relative;
+    background-image: url($discoverBg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 1%;
+    width: 48%;
+    min-height: 40vh;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        h2 {
+            background-color: rgba(0,0,0,0.3);
+        }
+    }
+
+    h2 {
+        color: $white;
+        text-shadow: 1px 1px 1px $black;
+        text-transform: capitalize;
+        height: 100%;
+        margin: 0;
+        padding: 1%;
+        border-radius: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        background-color: rgba(0,0,0,0.6);
+    }
+}
+.search-container {
+    background-image: url($searchBg);
+}
+
+/* input fields */
+.input-discover-options,
+.input-search-field {
+    margin: 1em;
+    display: none;
+    border: 2px solid $lightBlue;
+    border-radius: 5px;
+    color: $black;
+}
+.input-discover-options {
+    border: none;
 }
