@@ -40,7 +40,7 @@ header {
 }
 
 /************************
-Main Section
+Input Section
 *************************/
 .inner-input-section {
     text-align: center;
@@ -66,7 +66,7 @@ Main Section
     transition: all 0.3s ease-in-out;
     &:hover {
         h2 {
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0,0,0,0.4);
         }
     }
 
@@ -76,11 +76,12 @@ Main Section
         text-transform: capitalize;
         height: 100%;
         margin: 0;
-        padding: 1%;
+        padding: 2%;
         border-radius: 15px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         transition: all 0.3s ease-in-out;
         background-color: rgba(0,0,0,0.6);
     }
@@ -100,4 +101,68 @@ Main Section
 }
 .input-discover-options {
     border: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discover-option {
+    width: 47%;
+    display: inline-block;
+    padding: 0.5% 1%;
+    margin: 1%;
+    background-color: $blue;
+    color: $white;
+    border: 2px solid $blue;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: transparent;
+        color: $blue;
+    }
+}
+
+/************************
+Output Section
+*************************/
+.output-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.movie-result-content {
+    text-align: center;
+    background: rgba(100, 142, 211, 0.4);;
+    border: 2px solid $blue;
+    border-radius: 5px;
+    width: 80%;
+    padding: 1em;
+    margin: 1em auto;
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+/************************
+Responsive Section
+*************************/
+@media screen and (min-width: 768px) {
+    .movie-result-content {
+        display: inline-block;
+        width: 47%;
+        margin: 1%;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .movie-result-content {
+        width: 31%;
+    }
 }
