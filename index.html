@@ -45,22 +45,22 @@
 
             <article class="input-fields">
                 <div class="input-discover-options">
-                    <div id="current-movies" class="discover-option col-xs-6 col-sm-4">
+                    <div class="discover-option" value="primary_release_date.gte=">
                         <h4>In Theaters</h4>
                     </div>
-                    <div id="popular-movies" class="discover-option col-xs-6 col-sm-4">
+                    <div class="discover-option" value="sort_by=popularity.desc">
                         <h4>Popular Movies</h4>
                     </div>
-                    <div id="best-movies-thisYear" class="discover-option col-xs-6 col-sm-4">
-                        <h4>Best movies from 2017</h4>
+                    <div class="discover-option" value="primary_release_year=">
+                        <h4 id="best-movies-thisYear"><!--will be filled in with js-->Best in current year</h4>
                     </div>
-                    <div id="best-action-movies" class="discover-option col-xs-6 col-sm-4">
+                    <div class="discover-option" value="with_genres=28&sort_by=vote_average.desc">
                         <h4>Best action movies</h4>
                     </div>
-                    <div id="best-comedy-movies" class="discover-option col-xs-6 col-sm-4">
+                    <div class="discover-option" value="with_genres=35&sort_by=vote_average.desc">
                         <h4>Best comedy movies</h4>
                     </div>
-                    <div id="best-horror-movies" class="discover-option col-xs-6 col-sm-4">
+                    <div class="discover-option" value="with_genres=27&sort_by=vote_average.desc">
                         <h4>Best horror movies</h4>
                     </div>
                 </div>
