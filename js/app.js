@@ -10,8 +10,7 @@ $(function () {
     let discoverContainer = $(".discover-container"),
         searchContainer = $(".search-container");
     let discoverOpts = $('.input-discover-options'),
-        searchFields = $('.input-search-field'),
-        selectedOption;
+        searchFields = $('.input-search-field');
     let out = $(".output-section");
     let discoverUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&`;
     discoverOpts.hide();
