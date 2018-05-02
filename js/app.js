@@ -165,17 +165,3 @@ $(function () {
     $('#best-movies-thisYear').html(`Best movies in ${year}`);
 
 }); //Main function fires when document loads
-
-/*
-const apiKey = 'dc6e89fce3c599996912de0ef6bfe6b4';
-const genresUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`;
-const baseImgUrl = 'http://image.tmdb.org/t/p/w200';
-const totalPgs = 10;
-const date = new Date();
-let day = date.getUTCDate();
-let month = date.getUTCMonth()+1;
-let year = date.getUTCFullYear();
-let dateStamp = `${year}-${month}-${day}`;
-let storage = window.localStorage;
-*/
-//temp files for local computer
