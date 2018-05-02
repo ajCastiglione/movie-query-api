@@ -30,7 +30,7 @@ header {
     background-size: cover;
     background-position: center center;
     background-blend-mode: multiply;
-    padding: 1.75em 0;
+    padding: 3em 0;
     margin-bottom: 1em;
 
     h1 {
@@ -159,10 +159,38 @@ Responsive Section
         width: 47%;
         margin: 1%;
     }
+    .discover-container,
+    .search-container {
+        min-height: 30vh;
+    }
 }
 
+@media screen and (min-width: 1030px) {
+    header {
+        padding: 6em 0;
+    }
+    .inner-input-section {
+        justify-content: center;
+    }
+    .discover-container,
+    .search-container {
+        min-height: 20vh;
+        width: 40%;
+    }
+}
+ 
 @media screen and (min-width: 1240px) {
     .movie-result-content {
         width: 31%;
+    }
+    .discover-container,
+    .search-container {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .movie-result-content {
+        width: 48%;
     }
 }

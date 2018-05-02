@@ -13,10 +13,12 @@ gulp.task('styles', function() {
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.stream({match: 'index.html, css/*.css, js/*.js'}));
 });
 
 browserSync.init({
+  injectChanges: true,
   files: ['index.html', 'css/*.css', 'js/*.js'],
   server: "./"
 });
