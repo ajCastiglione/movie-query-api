@@ -6,17 +6,21 @@
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Style Sheets -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
     <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <!--Bootstrap-->
+    <!--FontAwesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
-    <!--FontAwesome-->
+    <!--Main Stylesheet-->
     <link href="css/styles.css" rel="stylesheet">
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="config/config-file.js"></script>
     <script src="js/app.js"></script>
 </head>
@@ -72,8 +76,10 @@
 
         </section>
 
-        <section class="output-section container">
-            <!--results will display here-->
+        <section class="output-section">
+            <div id="resultsSection" class="owl-carousel owl-theme">
+                <!--results will display here-->
+            </div>
         </section>
     </main>
 

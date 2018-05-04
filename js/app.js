@@ -11,12 +11,12 @@ $(function () {
         searchContainer = $(".search-container");
     let discoverOpts = $('.input-discover-options'),
         searchFields = $('.input-search-field');
-    let out = $(".output-section");
+    let out = $("#resultsSection");
     let discoverUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&`;
     discoverOpts.hide();
     let movieData = [] || JSON.parse(storage.movieProp),
         genresArr = [] || JSON.parse(storage.genreList);
-
+    const slider = $('.owl-carousel');
 
     //showing search fields
     discoverContainer.on('click', e => {
@@ -41,8 +41,8 @@ $(function () {
 
     //Initializing search and waiting for it to return a response
     async function getResults(param) {
-        movieData = [];
-        const Response = await fetchResults(param);
+        movieData = [], genresArr = [];
+        const Movies = await fetchResults(param);
         const Genres = await fetchGenres();
 
         for (genre of Genres.genres) {
@@ -52,18 +52,22 @@ $(function () {
             });
         }
 
-        for (movie of Response.results) {
+        for (movie of Movies.results) {
             let movieGenres = await filterGenres(movie.genre_ids);
             let poster = `${baseImgUrl}${movie.poster_path}`;
+            let overview = movie.overview;
 
-            if (!movieGenres) movieGenres = `Not Listed`;
-            if (!movie.poster_path) poster = "https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/500x735.png";
+            if (overview.length > 140) {overview = overview.substring(0, 140);}
+            overview += '...';
+            if (!movieGenres) {movieGenres = `Not Listed`;}
+            if (!movie.poster_path) {poster = "https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/500x735.png";}
             movieData.push({
                 'id': movie.id,
                 'genres': movieGenres,
                 'title': movie.original_title,
                 'img': poster,
-                'release': movie.release_date
+                'release': movie.release_date,
+                'overview': overview
             });
         }
 
@@ -122,36 +126,65 @@ $(function () {
         if (savedArr) {
             for (movie of savedArr) {
                 content = $(`
-                <div class="movie-result-content clearfix">
-                    <div class="movie-image col-xs-6">
-                        <img src="${movie.img}" alt="${movie.title}">
-                    </div>
-                    <div class="movie-content col-xs-6">
-                        <h3>${movie.title}</h3>
-                        <p class="release-date">Release Date: <br> ${movie.release}</p>
-                        <p class="genre-list">Genres: <br> ${movie.genres}</p>
-                    </div>
+            <div class="movie-result-content clearfix">
+                <div class="movie-content col-xs-6 col-sm-12">
+                <h3>${movie.title}</h3>
+                <img src="${movie.img}" alt="${movie.title}">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+                <p class="release-date">Release Date: <br> ${movie.release}</p>
+                <p class="genre-list">Genres: <br> ${movie.genres}</p>
+                <p class="genre-overview">Overview: <br> ${movie.overview}</p>
+            </div>
                 </div>
             `);
                 out.append(content);
             }
+            putItInaSlider();
         } else {
+            slider.owlCarousel('destroy');
             for (movie of movieData) {
                 content = $(`
             <div class="movie-result-content clearfix">
-                <div class="movie-image col-xs-6">
+                <div class="movie-content col-xs-6 col-sm-12">
+                    <h3>${movie.title}</h3>
                     <img src="${movie.img}" alt="${movie.title}">
                 </div>
-                <div class="movie-content col-xs-6">
-                    <h3>${movie.title}</h3>
+                <div class="col-xs-6 col-sm-12">
                     <p class="release-date">Release Date: <br> ${movie.release}</p>
                     <p class="genre-list">Genres: <br> ${movie.genres}</p>
+                    <p class="genre-overview">Overview: <br> ${movie.overview}</p>
                 </div>
             </div>
         `);
                 out.append(content);
             }
+            putItInaSlider();
         }
+    }
+
+    function putItInaSlider() {
+        slider.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: false,
+            mouseDrag: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1030: {
+                    items: 3
+                },
+                1240: {
+                    items: 4
+                }
+            }
+        });
     }
 
     if (storage.movieProp) {

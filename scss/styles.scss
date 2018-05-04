@@ -136,28 +136,49 @@ Output Section
 }
 
 .movie-result-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     text-align: center;
     background: rgba(100, 142, 211, 0.4);;
     border: 2px solid $blue;
     border-radius: 5px;
-    width: 80%;
-    padding: 1em;
-    margin: 1em auto;
+    width: 90%;
+    padding: 2%;
+    margin: 2% auto;
 
     img {
         height: auto;
         width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+    }
+
+    .movie-content {
+        margin-bottom: 2em;
     }
 }
+
+/*********************
+owl section
+**********************/
+
+.owl-nav {
+    text-align: center;
+    width: 100%;
+  
+    span {
+      font-size: 2em;
+      padding: 0.5em 1em;
+    }
+  }
 
 /************************
 Responsive Section
 *************************/
 @media screen and (min-width: 768px) {
     .movie-result-content {
-        display: inline-block;
-        width: 47%;
-        margin: 1%;
+        margin: 1% auto;
     }
     .discover-container,
     .search-container {
@@ -180,17 +201,8 @@ Responsive Section
 }
  
 @media screen and (min-width: 1240px) {
-    .movie-result-content {
-        width: 31%;
-    }
     .discover-container,
     .search-container {
         width: 30%;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    .movie-result-content {
-        width: 48%;
     }
 }
