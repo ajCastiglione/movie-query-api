@@ -127,15 +127,18 @@ $(function () {
             for (movie of savedArr) {
                 content = $(`
             <div class="movie-result-content clearfix">
-                <div class="movie-content col-xs-6 col-sm-12">
-                <h3>${movie.title}</h3>
-                <img src="${movie.img}" alt="${movie.title}">
-            </div>
-            <div class="col-xs-6 col-sm-12">
-                <p class="release-date">Release Date: <br> ${movie.release}</p>
-                <p class="genre-list">Genres: <br> ${movie.genres}</p>
-                <p class="genre-overview">Overview: <br> ${movie.overview}</p>
-            </div>
+                    <h3>${movie.title}</h3>
+                    <div class="movie-content">
+                        <div class="inner-content col-xs-6 col-sm-12">
+                            <img src="${movie.img}" alt="${movie.title}">
+                        </div>
+                    
+                        <div class="inner-content col-xs-6 col-sm-12">
+                            <p class="release-date">Release Date: <br> ${movie.release}</p>
+                            <p class="genre-list">Genres: <br> ${movie.genres}</p>
+                            <p class="genre-overview">Overview: <br> ${movie.overview}</p>
+                        </div>
+                    </div>
                 </div>
             `);
                 out.append(content);
@@ -146,14 +149,17 @@ $(function () {
             for (movie of movieData) {
                 content = $(`
             <div class="movie-result-content clearfix">
-                <div class="movie-content col-xs-6 col-sm-12">
-                    <h3>${movie.title}</h3>
-                    <img src="${movie.img}" alt="${movie.title}">
-                </div>
-                <div class="col-xs-6 col-sm-12">
-                    <p class="release-date">Release Date: <br> ${movie.release}</p>
-                    <p class="genre-list">Genres: <br> ${movie.genres}</p>
-                    <p class="genre-overview">Overview: <br> ${movie.overview}</p>
+            <h3>${movie.title}</h3>
+                <div class="movie-content">
+                    <div class="inner-content col-xs-6 col-sm-12">
+                        <img src="${movie.img}" alt="${movie.title}">
+                    </div>
+                
+                    <div class="inner-content col-xs-6 col-sm-12">
+                        <p class="release-date">Release Date: <br> ${movie.release}</p>
+                        <p class="genre-list">Genres: <br> ${movie.genres}</p>
+                        <p class="genre-overview">Overview: <br> ${movie.overview}</p>
+                    </div>
                 </div>
             </div>
         `);
@@ -161,7 +167,7 @@ $(function () {
             }
             putItInaSlider();
         }
-    }
+    } //Displaying the retrieved content
 
     function putItInaSlider() {
         slider.owlCarousel({
@@ -185,12 +191,12 @@ $(function () {
                 }
             }
         });
-    }
+    } //Setting up the slider
 
     if (storage.movieProp) {
         let arr = JSON.parse(storage.movieProp);
         displayContent(arr);
-    }
+    } //checking if local has the saved results, then displaying said results
 
 
     //Setting this section dynamically - even though it will change once per year...

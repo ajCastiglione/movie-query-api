@@ -145,7 +145,11 @@ Output Section
     border-radius: 5px;
     width: 90%;
     padding: 2%;
-    margin: 2% auto;
+    margin: auto;
+
+    .inner-content {
+        margin: 2% auto;
+    }
 
     img {
         height: auto;
